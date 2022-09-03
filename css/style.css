@@ -54,7 +54,7 @@ input{
     margin: 3rem auto ;
     background-color: #fdfdfd;
     padding: 1.5rem;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 .tarefas-container header{
     text-align: center;
@@ -97,12 +97,12 @@ font-weight: bold;
     margin-bottom: .5rem;
 }
 #pesquisa{
-    border-right: 1px solid #ddd;
     padding-right: 1rem;
     margin-right: 1rem;
     width: 65%;
     display: flex;
     flex-direction: column;
+
 }
 #pesquisa form{
     display: flex;
@@ -110,16 +110,8 @@ font-weight: bold;
 #pesquisa input{
     width: 100%;
     margin-right: 0.3rem;
-}
-#filter{
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-}
-#filter select{
-    flex: 1;
-}
 
+}
 /* tarefas list */
 .tarefas{
 display: flex;

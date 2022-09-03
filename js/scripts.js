@@ -7,7 +7,7 @@ const editInput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 const searchInput = document.querySelector("#pesquisa-input");
 const eraseBtn = document.querySelector("#del-pesquisa");
-const filterBtn = document.querySelector("#filter-select");
+
 
 let oldInputValue;
 
@@ -88,38 +88,6 @@ const getSearchedTodos = (pesquisa) => {
       }
     });
   };
-
-  const filterTodos = (filterValue) => {
-    const todos = document.querySelectorAll(".tarefas");
-  
-    switch (filterValue) {
-      case "all":
-        todos.forEach((tarefas) => (tarefas.style.display = "flex"));
-  
-        break;
-  
-      case "done":
-        todos.forEach((todo) =>
-          todo.classList.contains("done")
-            ? (todo.style.display = "flex")
-            : (todo.style.display = "none")
-        );
-  
-        break;
-  
-      case "todo":
-        todos.forEach((todo) =>
-          !tarefas.classList.contains("done")
-            ? (tarefas.style.display = "flex")
-            : (tarefas.style.display = "none")
-        );
-  
-        break;
-  
-      default:
-        break;
-    }
-  };
 // Eventos
 tarefasForm.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -193,12 +161,6 @@ editForm.addEventListener("submit", (e) => {
     searchInput.dispatchEvent(new Event("keyup"));
   });
   
-  filterBtn.addEventListener("change", (e) => {
-    const filterValue = e.target.value;
-  
-    filterTodos(filterValue);
-  });
-  
   // Local Storage
   const getTodosLocalStorage = () => {
     const todos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -220,14 +182,6 @@ editForm.addEventListener("submit", (e) => {
     todos.push(todo);
   
     localStorage.setItem("todos", JSON.stringify(todos));
-  };
-  
-  const removeTodoLocalStorage = (todoText) => {
-    const todos = getTodosLocalStorage();
-  
-    const filteredTodos = todos.filter((todo) => todo.text != todoText);
-  
-    localStorage.setItem("todos", JSON.stringify(filteredTodos));
   };
   
   const updateTodoStatusLocalStorage = (todoText) => {
