@@ -9,7 +9,9 @@
 body {
     background-image: url("../img/pexels-frans-van-heerden-632470.jpg");
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    height: 90vh;
 }
 
 button {
